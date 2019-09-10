@@ -1,9 +1,12 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-    padding: 0;
-    margin: 0;
+.header{
+  background-color: #C26802;
 }
-
-.container {
-    width: 1230px;
+.projects{
+  background-color: #FF915E;
+}
+.second-box{
+  background-color: #E0594A;
+}
+.patchwork{
+  border: 1px dotted black;
 }
