@@ -18,12 +18,12 @@ body {
 }
 
 .patchwork {
-  border: 1px dotted black;
+  /* border: 1px dotted black; */
 }
 
 #ipone {
   display: block;
-  margin-top: -750px;
+  margin-top: -550px;
   margin-bottom: 80px;
   width: 100%;
 }
@@ -48,11 +48,11 @@ body {
 }
 
 .design {
-  background-color: #F0633E;
+  background-color: #f5999e;
 }
 
 .built {
-  background-color: #8A6676;
+  background-color: #625f7e;
 }
 
 .clients {
@@ -60,7 +60,7 @@ body {
 }
 
 .great {
-  background-color: #D38EA5;
+  background-color: #bc8cbe;
 }
 
 .sign_up {
@@ -68,9 +68,14 @@ body {
 }
 
 .pictures {
-  background-color: #009B38;
+  background-color: #82ca9c;
 }
 
 .something_new {
   background-image: url(img/3.jpg);
+}
+
+#cards-right{
+  margin-left: 16rem;
+
 }
