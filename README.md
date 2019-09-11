@@ -1,4 +1,4 @@
-## Intégration de maquette
+## Intégration de la maquette *Take*
 
 Intégration d'une maquette au format psd en html/css/js
 
