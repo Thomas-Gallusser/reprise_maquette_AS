@@ -16,6 +16,14 @@ body {
 .patchwork{
   border: 1px dotted black;
 }
+#ipone
+{
+	display: block;
+	margin-top: -750px;
+	margin-bottom: 80px;
+	width: 100%;
+}
+
 
 #titlepic
 {
@@ -39,9 +47,10 @@ body {
 
 }
 
-
-
 #ipone
 {
-
+	display: block;
+	margin-top: -550px;
+	margin-bottom: 80px;
+	width: 100%;
 }
