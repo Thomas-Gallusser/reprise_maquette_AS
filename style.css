@@ -104,3 +104,8 @@ body {
 .web_based p, .team p, .support p {
   font-size: 0.8em;
 }
+
+.end{
+  background-color: #192431;
+  height: 20em;
+}
