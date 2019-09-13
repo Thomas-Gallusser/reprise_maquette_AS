@@ -3,10 +3,13 @@ body {
 }
 
 .header {
-  background: url(img/paysage.jpg) no-repeat center center;
-  padding: 55px 0 380px;
-  text-align: left;
+  background: url(img/paysage.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+  /*padding: 55px 0 380px;
+  text-align: left;
+  background-size: cover;*/
 }
 
 .projects {
@@ -53,6 +56,9 @@ body {
 
 .clients {
   background-image: url(img/1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .great {
@@ -61,6 +67,9 @@ body {
 
 .sign_up {
   background-image: url(img/2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .pictures {
@@ -69,6 +78,9 @@ body {
 
 .something_new {
   background-image: url(img/3.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #cards-right{
@@ -96,6 +108,9 @@ body {
 /*second-box*/
 .second-box{
   background-image: url(img/voiture.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .information{
   background-color: #82ca9c;
@@ -105,7 +120,30 @@ body {
   font-size: 0.8em;
 }
 
+/*footer*/
 .end{
   background-color: #192431;
-  height: 20em;
+  height: 35em;
+  display: flex;
+}
+.blabla{
+  font-family: 'Roboto', sans-serif;
+}
+.get_in_touch h4, .form h4{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+}
+.contents{
+  color: white;
+}
+h5{
+  font-weight: 600;
+  font-size: 1em;
+}
+.spam_info{
+  font-size: 0.8em;
+}
+.btn btn-outline-secondary{
+  background-color: #82ca9c !important;
 }
