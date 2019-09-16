@@ -104,8 +104,11 @@ display: inline-block;
 color: #fff;
 font-weight: 700;
 }
-.purple-bg:hover{
-background: #bb8dc2 !important;
+.purple-bg {
+transition: background 300ms;
+}
+.nocolor:hover .purple-bg {
+background: #BB8DC2 !important;
 }
 
 /*second-box*/
