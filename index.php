@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="author" lang="fr" content="Solange Harmonie PICARD, Antoni SALOMON">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TAKE</title>
+  <title><?php echo get_bloginfo('name'); ?></title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link href="<?php echo get_bloginfo('template_directory');?>/style.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_directory'); ?>/img/logo.png">
   <!--googlefont-->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -18,12 +18,12 @@
   <header class="header min-vh-100">
     <div class="container logo">
       <a href="#">
-        <img src="img/logo.png" alt="">
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.png" alt="">
       </a>
     </div>
     <div class="container title text-white" id="titlepic">
-      <h1 id="picperf">Picture perfect</h1>
-      <p id="pictext">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h1 id="picperf"><?php echo get_bloginfo('name'); ?></h1>
+      <p id="pictext"><?php echo get_bloginfo('description'); ?></p>
     </div>
   </header>
 
@@ -40,7 +40,7 @@
             <p>eaque ipsa quae ab illo inventore veritatis et beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
           </div>
           <div class="col py-3 px-lg-5">
-            <img src="img/ipone.png" alt="ipone" id="ipone">
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/ipone.png" alt="ipone" id="ipone">
             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
             <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
           </div>
@@ -246,7 +246,7 @@ p          <h2 class="text-white display-4">More power <br> behind every pixel.<
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+  <script src="<?php echo get_bloginfo('template_directory'); ?>/script.js"></script>
 
 </body>
 
