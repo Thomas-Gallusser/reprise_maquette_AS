@@ -1,3 +1,8 @@
+<?php
+  $mysqli = new mysqli("localhost", "root", "","maquette_take") or die("Connect failed: %s\n". $conn -> error);
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -125,8 +130,8 @@
     <article class="container d-flex flex-column align-content-center">
       <div class="row flex-grow-1 d-flex align-items-end">
         <div class="col-12 col-md-4" id="bottom-position">
-p          <h2 class="text-white display-4">More power <br> behind every pixel.</h2>
-          <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h2 class="text-white display-4">More power <br> behind every pixel.</h2>
+          <p class="text-white">Lorem ipsuzm dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
         </div>
       </div>
@@ -157,22 +162,19 @@ p          <h2 class="text-white display-4">More power <br> behind every pixel.<
   <section class="products">
     <div class="container">
       <div class="row p-5">
-        <div class="col-12 col-md-12 col-lg-6">
-          <div class="nocolor">
-            <span class="purple-bg">Legacy</span>
-            <h2 class="solo1">Go it solo</h2>
-            <p class="solo2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-            <button type="button" id="gbut" class="btn btn-success">Buy now $18</button>
-          </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-6">
-          <div class="nocolor">
-            <span class="purple-bg">Most Popular</span>
-            <h2 class="solo1">Team Plan</h2>
-            <p class="solo2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-            <button type="button" id="gbut" class="btn btn-success">Buy now $18</button>
-          </div>
-        </div>
+        <?php
+            $result = $mysqli->query("SELECT * FROM mt_product");
+            while($row = $result->fetch_array()) {
+              echo '<div class="col-12 col-md-12 col-lg-6">
+                      <div class="nocolor">
+                      	<span class="purple-bg">' . $row[2] . '</span>
+                      	<h2 class="solo1">' . $row[0] . '</h2>
+                      	<p class="solo2">' . $row[1] . '</p>
+                      	<button type="button" id="gbut" class="btn btn-success">Buy now $' . $row[3] . '</button>
+                      </div>
+                    </div>';
+            }
+         ?>
       </div>
     </div>
   </section>
