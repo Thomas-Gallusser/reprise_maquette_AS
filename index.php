@@ -159,13 +159,13 @@
   </section>
 
   <!-- Anto Products col-->
-  <section class="products">
+  <section class="products" style="background-image:url('')>
     <div class="container">
       <div class="row p-5">
         <?php
             $result = $mysqli->query("SELECT * FROM mt_product");
             while($row = $result->fetch_array()) {
-              echo '<div class="col-12 col-md-12 col-lg-6">
+              echo '<div class="col-12 col-md-12 col-lg-6 px-0 imgFond" style="background:url(data:image/png;base64,' . $row[4] . ') no-repeat;">
                       <div class="nocolor">
                       	<span class="purple-bg">' . $row[2] . '</span>
                       	<h2 class="solo1">' . $row[0] . '</h2>
@@ -174,7 +174,7 @@
                       </div>
                     </div>';
             }
-         ?> 
+         ?>
       </div>
     </div>
   </section>

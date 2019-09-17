@@ -90,9 +90,7 @@ body {
   border: 0;
 }
 .custom-btn:hover{
-  background-color: rgba(255, 255, 255, 1);
-  color:rgba(0, 0, 0, 1);
-  border: 0;
+  background-color: rgba(255, 255, 255, 255);
 }
 
 .details h2{
@@ -101,23 +99,6 @@ body {
 }
 .text-secondary{
   color: #979595;
-}
-
-.purple-bg{
-text-transform: uppercase;
-padding: 0px 15px;
-border-radius: 4px;
-background: #e1e1e1;
-font-size: 11px;
-display: inline-block;
-color: #fff;
-font-weight: 700;
-}
-.purple-bg {
-transition: background 300ms;
-}
-.nocolor:hover .purple-bg {
-background: #BB8DC2 !important;
 }
 
 /*second-box*/
@@ -153,21 +134,37 @@ background: #BB8DC2 !important;
   /* height: 590px; */
   background-color: #F6F7FA;
 }
+.imgFond{
+  background-size:cover !important;
+}
 .nocolor
 {
   padding: 45px 50px;
   transition: box-shadow .3s;
+  background-color:rgba(255,255,255,.7);
 }
 .nocolor:hover
 {
   background-color: #fff;
   box-shadow: 0 0 11px rgba(33,33,33,.2);
-
+  background-color:rgba(255,255,255,.4);
 }
-#gbut
-{
-  background-color: #82CA9C;
-  border: 0;
+
+.purple-bg{
+  text-transform: uppercase;
+  padding: 0px 15px;
+  border-radius: 4px;
+  background: #e1e1e1;
+  font-size: 11px;
+  display: inline-block;
+  color: #fff;
+  font-weight: 700;
+}
+.purple-bg {
+  transition: background 300ms;
+}
+.nocolor:hover .purple-bg {
+  background: #BB8DC2 !important;
 }
 
 /*footer*/
