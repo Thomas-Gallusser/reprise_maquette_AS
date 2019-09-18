@@ -23,9 +23,14 @@ function add_product() {
    ?>
    <div id="wrap" class="wrap customCss">
      <!------------------------------------------------------------------------------------------>
-    <form class="" action="test()" method="post">
-      <input type='hidden' name='action' value='submitform'/>
-      <input type='button' id='btn' name='btn' value='test' onClick='test()'/>
+    <form class="postProduct">
+      <input type='text' id='tag' placeholder='TAG'/><br/>
+      <input type='text' id='title' placeholder='Titre'/><br/>
+      <input type='text' id='comment' placeholder='Commentaire'/><br/>
+      <input type='text' id='price' placeholder='Prix'/><br/>
+      <input type='hidden' id='img64' value=''/>
+      <input type='file' id='img' class='envoieImg'/><br/>
+      <input type='button' id='btn' name='btn' value='Ajouter le produit' onClick='envoieProduct()'>
     </form>
      <!------------------------------------------------------------------------------------------>
    </div>

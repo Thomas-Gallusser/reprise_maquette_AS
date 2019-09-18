@@ -1,11 +1,32 @@
-function test() {
-  if (document.getElementById("btn").value == "test") {
-    document.getElementById("btn").value = "click";
+// jq2 = jQuery.noConflict();
+// jq2(function( $ ) {
+//
+// });
+async function envoieProduct(){
+  if (document.getElementById("img").files[0] != null) {
+    getBase64(document.getElementById("img").files[0]);
   } else {
-    document.getElementById("btn").value = "test";
+    $.ajax({type: 'POST', url: '../wp-content/themes/take/post_product.php', data:'tag=' + document.getElementById("tag").value + '&title=' + document.getElementById("title").value + '&comment=' + document.getElementById("comment").value + '&price=' + document.getElementById("price").value + '&img=', dataType: 'html',  success: function(rep){
+        if (rep == '1') {
+          console.log("Ok bien envoyer");
+        } else {
+          console.log("Pas envoyer !");
+        }
+       }});
   }
 }
 
-function dah(){
-  $.ajax({type: 'POST', url: '../wp-content/themes/take/post_product.php', data: '', dataType: 'json'});
+function getBase64(f) {
+    var reader = new FileReader();
+    reader.onload = function () {
+    var b64 = reader.result;
+      $.ajax({type: 'POST', url: '../wp-content/themes/take/post_product.php', data:'tag=' + document.getElementById("tag").value + '&title=' + document.getElementById("title").value + '&comment=' + document.getElementById("comment").value + '&price=' + document.getElementById("price").value + '&img=' + b64, dataType: 'html',  success: function(rep){
+          if (rep == '1') {
+            console.log("Ok bien envoyer");
+          } else {
+            console.log("Pas envoyer !");
+          }
+       }});
+  };
+  reader.readAsDataURL(f);
 }

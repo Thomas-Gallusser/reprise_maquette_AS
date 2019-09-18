@@ -135,7 +135,9 @@ body {
   background-color: #F6F7FA;
 }
 .imgFond{
-  background-size:cover !important;
+  background-repeat: no-repeat !important;;
+  background-size: 100% 100% !important;;
+
 }
 .nocolor
 {
@@ -173,6 +175,19 @@ body {
 .nocolor:hover .btn-success{
   background-color: rgb(40,167,69);
   border-color: rgb(40,167,69,0);
+}
+.btnHov:hover{
+  background-color: rgb(40,167,69) !important;
+}
+.postProduct{
+  width:500px;
+}
+.postProduct input{
+  width:100%;
+}
+
+.cadres{
+  padding:15px !important;
 }
 
 

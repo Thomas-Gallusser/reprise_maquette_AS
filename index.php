@@ -159,18 +159,20 @@
   </section>
 
   <!-- Anto Products col-->
-  <section class="products" style="background-image:url('')>
+  <section class="products">
     <div class="container">
       <div class="row p-5">
         <?php
             $result = $mysqli->query("SELECT * FROM mt_product");
             while($row = $result->fetch_array()) {
-              echo '<div class="col-12 col-md-12 col-lg-6 px-0 imgFond" style="background:url(data:image/png;base64,' . $row[4] . ') no-repeat;">
-                      <div class="nocolor">
-                      	<span class="purple-bg">' . $row[2] . '</span>
-                      	<h2 class="solo1">' . $row[0] . '</h2>
-                      	<p class="solo2">' . $row[1] . '</p>
-                      	<button type="button" id="gbut" class="btn btn-success">Buy now $' . $row[3] . '</button>
+              echo '<div class="col-12 col-md-12 col-lg-6 cadres">
+                      <div class="col-12 px-0 imgFond" style="background:url(' . $row[4] . ') no-repeat;">
+                        <div class="nocolor">
+                        	<span class="purple-bg">' . $row[2] . '</span>
+                        	<h2 class="solo1">' . $row[0] . '</h2>
+                        	<p class="solo2">' . $row[1] . '</p>
+                        	<button type="button" id="gbut" class="btn btn-success">Buy now $' . $row[3] . '</button>
+                        </div>
                       </div>
                     </div>';
             }
@@ -230,7 +232,7 @@
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="username" aria-label="Recipient's username" aria-describedby="button-addon2">
               <div class="input-group-append">
-                <button class="btn" type="button" id="button-addon2"><i class="fas fa-check text-white"></i></button>
+                <button class="btn btnHov" type="button" id="button-addon2"><i class="fas fa-check text-white"></i></button>
               </div>
             </div>
             <p class="spam_info text-secondary">We don't send spam. Actually, who are we kiding, we'll spam the shit out of your inbox</p>
