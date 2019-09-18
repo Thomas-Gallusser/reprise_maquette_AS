@@ -170,20 +170,19 @@
   <section class="products">
     <div class="container">
       <div class="row p-5">
-        <?php
-          $recent_posts = wp_get_recent_posts();
-          foreach( $recent_posts as $recent ){
-          echo '<div class="col-12 col-md-12 col-lg-6 cadres">
-            <div class="nocolor">
-          	<span class="purple-bg">TAG</span>
-          	<h2 class="solo1">' . $recent["post_title"] . '<h2>
-          	<p class="solo2">' . $recent["post_content"] . '</p>
-          	<button type="button" id="gbut" class="btn btn-success">Buy now $0</button>
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        	<div class="col-12 col-md-12 col-lg-6 cadres">
+            <div class="col-12 px-0 imgFond" style="background:url(<?php if (has_post_thumbnail()) { the_post_thumbnail_url(); } ?>) no-repeat;">
+          	  <div class="nocolor">
+          		<span class="purple-bg"><?php the_tags('','',''); ?></span>
+          		<h2 class="solo1"><?php the_title(); ?></h2>
+          		<p class="solo2"><?php the_content(); ?></p>
+          		<button type="button" id="gbut" class="btn btn-success">Buy now $<?php echo get_post_meta(get_the_ID(), 'Prix', true); ?></button>
+          	  </div>
             </div>
-          </div>';
-          }
-          wp_reset_query();
-        ?>
+        	</div>
+        <?php endwhile; else : ?>
+        <?php endif; ?>
       </div>
     </div>
   </section>
