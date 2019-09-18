@@ -171,13 +171,15 @@
     <div class="container">
       <div class="row p-5">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        	<div class="col-12 col-md-12 col-lg-6">
-        	  <div class="nocolor">
-        		<span class="purple-bg"><?php the_tags('','',''); ?></span>
-        		<h2 class="solo1"><?php the_title(); ?><h2>
-        		<p class="solo2"><?php the_content(); ?></p>
-        		<button type="button" id="gbut" class="btn btn-success">Buy now $0</button>
-        	  </div>
+        	<div class="col-12 col-md-12 col-lg-6 cadres">
+            <div class="col-12 px-0 imgFond" style="background:url(<?php if (has_post_thumbnail()) { the_post_thumbnail_url(); } ?>) no-repeat;">
+          	  <div class="nocolor">
+          		<span class="purple-bg"><?php the_tags('','',''); ?></span>
+          		<h2 class="solo1"><?php the_title(); ?><h2>
+          		<p class="solo2"><?php the_content(); ?></p>
+          		<button type="button" id="gbut" class="btn btn-success">Buy now $0</button>
+          	  </div>
+            </div>
         	</div>
         <?php endwhile; else : ?>
         <?php endif; ?>
