@@ -59,7 +59,7 @@
     <article class="patchwork text-light">
       <div id="cards-right" class="row">
         <div class="line1 row d-flex justify-content-sm-center">
-          <div class="design col-sm-12 min-vw-100 col-md-12 col-lg-3 p-3">
+          <div class="design col-sm-12 col-md-12 col-lg-3 p-3">
             <h3>Design</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
@@ -165,7 +165,7 @@
         <?php
           $recent_posts = wp_get_recent_posts();
           foreach( $recent_posts as $recent ){
-          echo '<div class="col-12 col-md-12 col-lg-6">
+          echo '<div class="col-12 col-md-12 col-lg-6 cadres">
             <div class="nocolor">
           	<span class="purple-bg">TAG</span>
           	<h2 class="solo1">' . $recent["post_title"] . '<h2>

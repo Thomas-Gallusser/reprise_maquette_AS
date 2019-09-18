@@ -225,13 +225,15 @@ h5{
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
-
+.clients {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
 /* tablettes et smartphones */
 @media screen and (max-width: 768px){
 
   .clients {
     background-image: url(img/1.png);
-    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
