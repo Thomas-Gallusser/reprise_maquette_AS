@@ -55,49 +55,57 @@
   </section>
 
   <!--harmo : side-by-side gallery-->
-  <section class="pt-5 pl-5 pr-5">
-    <article class="patchwork text-light">
+  <section class="cadres">
+    <article class="patchwork text-light pt-5 pl-5 pr-5">
       <div id="cards-right" class="row">
-        <div class="line1 row d-flex justify-content-sm-center">
-          <div class="design col-sm-12 col-md-12 col-lg-3 p-3">
+        <div class="line1 row m-sm-0">
+          <div class="design col-md-12 col-lg-6 p-3">
             <h3>Design</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
           </div>
 
-          <div class="built col-sm-12 col-md-12 col-lg-3 p-3">
+          <div class="built col-md-12 col-lg-6 p-3">
             <h3>Built to last</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
           </div>
-          <div class="clients col-sm-12 col-md-12 col-lg-3 p-3">
+
+          <div class="clients col-md-12 col-lg-6 p-3">
             <h3>Our clients</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
           </div>
-          <div class="great col-sm-12 col-md-12 col-lg-3 p-3 ">
+
+          <div class="great col-md-12 col-lg-6 p-3">
             <h3>How to shoow great</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
           </div>
         </div>
-        <div class="line2 row">
-          <div class="sign_up col-sm-12 col-md-12 col-lg-6 p-3">
+
+        <div class="line2 row m-sm-0 ml-sm-50">
+
+          <div class="sign_up col-md-12 col-lg-6 p-3">
             <h3>Sign up & see why</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
           </div>
-          <div class="pictures col-md-12 col-lg-3 p-3">
+
+          <div class="pictures col-md-12 col-lg-6 p-3">
             <h3>Perfect pictures</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
           </div>
-          <div class="something_new col-md-12 col-lg-3 p-3">
+
+          <div class="something_new col-md-12 col-lg-6 p-3">
             <h3>Start something new</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
           </div>
+
         </div>
+
       </div>
     </article>
 
