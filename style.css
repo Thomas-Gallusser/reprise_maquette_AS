@@ -154,7 +154,7 @@ body {
   text-transform: uppercase;
   padding: 0px 15px;
   border-radius: 4px;
-  background: #e1e1e1;
+  background:rgba(187,141,192,.5);
   font-size: 11px;
   display: inline-block;
   color: #fff;
@@ -164,13 +164,21 @@ body {
   transition: background 300ms;
 }
 .nocolor:hover .purple-bg {
-  background: #BB8DC2 !important;
+  background:rgb(187,141,192);
 }
+.btn-success{
+  background-color: rgba(40,167,69,0.3);
+  border-color: rgb(40,167,69,.5);
+}
+.nocolor:hover .btn-success{
+  background-color: rgb(40,167,69);
+  border-color: rgb(40,167,69,0);
+}
+
 
 /*footer*/
 .end{
   background-color: #192431;
-
   display: flex;
 }
 .blabla{
@@ -190,9 +198,6 @@ h5{
 }
 .spam_info{
   font-size: 0.8em;
-}
-.btn btn-outline-secondary{
-  background-color: #82ca9c !important;
 }
 
 #button-addon2 {
