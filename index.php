@@ -163,20 +163,19 @@
     <div class="container">
       <div class="row p-5">
         <?php
-            $result = $mysqli->query("SELECT * FROM mt_product");
-            while($row = $result->fetch_array()) {
-              echo '<div class="col-12 col-md-12 col-lg-6 cadres">
-                      <div class="col-12 px-0 imgFond" style="background:url(' . $row[4] . ') no-repeat;">
-                        <div class="nocolor">
-                        	<span class="purple-bg">' . $row[2] . '</span>
-                        	<h2 class="solo1">' . $row[0] . '</h2>
-                        	<p class="solo2">' . $row[1] . '</p>
-                        	<button type="button" id="gbut" class="btn btn-success">Buy now $' . $row[3] . '</button>
-                        </div>
-                      </div>
-                    </div>';
-            }
-         ?>
+          $recent_posts = wp_get_recent_posts();
+          foreach( $recent_posts as $recent ){
+          echo '<div class="col-12 col-md-12 col-lg-6">
+            <div class="nocolor">
+          	<span class="purple-bg">TAG</span>
+          	<h2 class="solo1">' . $recent["post_title"] . '<h2>
+          	<p class="solo2">' . $recent["post_content"] . '</p>
+          	<button type="button" id="gbut" class="btn btn-success">Buy now $0</button>
+            </div>
+          </div>';
+          }
+          wp_reset_query();
+        ?>
       </div>
     </div>
   </section>
