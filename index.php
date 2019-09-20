@@ -23,7 +23,7 @@
   <header class="header min-vh-100">
     <div class="container logo">
       <a href="#">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.png" alt="">
+        <?php if(has_custom_logo()) the_custom_logo(); ?>
       </a>
     </div>
     <div class="container title text-white" id="titlepic">
@@ -32,160 +32,149 @@
     </div>
   </header>
 
-  <section class="projects">
-    <article class="container">
-      <div class="container px-lg-5">
-        <h2 class="pt-5 mb-4">Start something new</h2>
-        <div style="font-size:14px;" class="row mx-lg-n5">
-          <div class="col py-3 px-lg-5">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis
-              unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-            <p>eaque ipsa quae ab illo inventore veritatis et beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-          </div>
-          <div class="col py-3 px-lg-5">
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/ipone.png" alt="ipone" id="ipone">
-            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-          </div>
+<?php
+  $titleL = "";
+  $titleR = "";
+  $titre = "";
+  if (have_posts()) : while (have_posts()) : the_post();
+	if (has_term('first_left', 'category')) :
+    $titleL .= get_the_content();
+    $titre = '<h2 class="pt-5 mb-4">' . get_the_title() . '</h2>';
+  endif;
+
+	if (has_term('first_right', 'category')) :
+    if (has_post_thumbnail())  $titleR .= '<img src="' . get_bloginfo('template_directory') . '/img/ipone.png" alt="ipone" id="ipone">';
+    $titleR .= get_the_content();
+  endif; endwhile; endif;
+
+  if (strlen($titleL) > 0) {
+    echo'<section class="projects">
+      <article class="container">
+        <div class="container px-lg-5">' . $titre . '<div style="font-size:14px;" class="row mx-lg-n5">
+        <div class="col py-3 px-lg-5">'. $titleL .'</div>
+        <div class="col py-3 px-lg-5">'. $titleR .'</div>
         </div>
       </div>
     </article>
-  </section>
+  </section>';
+  }
 
-  <!--harmo : side-by-side gallery-->
-  <section class="cadres">
-    <article class="patchwork text-light pt-5 pl-5 pr-5">
-      <div id="cards-right" class="row">
-        <div class="line1 row m-sm-0">
-          <div class="design col-md-12 col-lg-6 p-3">
-            <h3>Design</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
-          </div>
 
-          <div class="built col-md-12 col-lg-6 p-3">
-            <h3>Built to last</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
-          </div>
+  $works = "";
+  if (have_posts()) : while (have_posts()) : the_post();
+	if (has_term('Works', 'category')) : $works .= '<div class="cadrebg col-md-12 col-lg-6 p-3"';
 
-          <div class="clients col-md-12 col-lg-6 p-3">
-            <h3>Our clients</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
-          </div>
+  if (has_post_thumbnail()) $works .=  ' style="background:url(' . get_the_post_thumbnail_url() . ')">'; else  $works .= ' style="background-color:' . sprintf('#%06X', mt_rand(0, 0xFFFFFF)) . ';">';
 
-          <div class="great col-md-12 col-lg-6 p-3">
-            <h3>How to shoow great</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
-          </div>
-        </div>
 
-        <div class="line2 row m-sm-0 ml-sm-50">
+  $works .= '<h3>' . get_the_title() . '</h3>
+    <p>' . get_the_content() . '</p>';
 
-          <div class="sign_up col-md-12 col-lg-6 p-3">
-            <h3>Sign up & see why</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
-          </div>
+    if (get_post_meta(get_the_ID(), 'url', true) != null){
+      $works .= '<button type="button" class="btn btn-primary custom-btn btn-sm" onclick="window.location.href=\'' . get_post_meta(get_the_ID(), "url", true) . '\'">Find Out More &rarr;</button>';
+    }
+  $works .= '</div>';
+  endif; endwhile; endif;
 
-          <div class="pictures col-md-12 col-lg-6 p-3">
-            <h3>Perfect pictures</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
-          </div>
+  if (strlen($works) > 0) {
+    echo'<!--harmo : side-by-side gallery-->
+    <section class="cadres">
+      <article class="patchwork text-light pt-5 pl-5 pr-5">
+        <div id="cards-right" class="row">'. $works .'</div>
 
-          <div class="something_new col-md-12 col-lg-6 p-3">
-            <h3>Start something new</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
-          </div>
-
-        </div>
-
-      </div>
-    </article>
-
-    <article class="details container p-5">
-      <h2>A look at details</h2>
-      <div class="small_articles row">
-        <aside class="web col-12 col-md-6 col-lg-3">
-          <h4>Web based</h4>
-          <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat.</p>
-        </aside>
-        <aside class="performance col-12  col-md-6 col-lg-3">
-          <h4>Performance</h4>
-          <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat.</p>
-        </aside>
-        <aside class="cultural col-12 col-md-6 col-lg-3">
-          <h4>Cultural</h4>
-          <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </aside>
-        <aside class="sustainability col-12 col-md-6 col-lg-3">
-          <h4>Sustainability</h4>
-          <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </aside>
-      </div>
-    </article>
-  </section>
-
-  <section class="second-box min-vh-100">
-    <article class="container d-flex flex-column align-content-center">
-      <div class="row flex-grow-1 d-flex align-items-end">
-        <div class="col-12 col-md-4" id="bottom-position">
-          <h2 class="text-white display-4">More power <br> behind every pixel.</h2>
-          <p class="text-white">Lorem ipsuzm dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <button type="button" class="btn btn-primary custom-btn btn-sm">Find Out More &rarr;</button>
-        </div>
-      </div>
-    </article>
-  </section>
-
-  <section class="information p-5">
-    <article class="reasons container p-3">
-      <h3 class="text-white pt-5 pb-4">Reasons to get onbaord</h3>
-      <div class="row d-flex align-items-end">
-        <aside class="web_based col-md-4 text-white pt-4 pb-4">
-          <h4>Web based</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </aside>
-        <aside class="team col-md-4 text-white pt-4 pb-4">
-          <h4>Team login</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </aside>
-        <aside class="support col-md-4 text-white pt-4 pb-4">
-          <h4>Great support</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </aside>
-      </div>
-    </article>
-  </section>
-
-  <!-- Anto Products col-->
-  <section class="products">
-    <div class="container">
-      <div class="row p-5">
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        	<div class="col-12 col-md-12 col-lg-6 cadres">
-            <div class="col-12 px-0 imgFond" style="background:url(<?php if (has_post_thumbnail()) { the_post_thumbnail_url(); } ?>) no-repeat;">
-          	  <div class="nocolor">
-          		<span class="purple-bg"><?php the_tags('','',''); ?></span>
-          		<h2 class="solo1"><?php the_title(); ?></h2>
-          		<p class="solo2"><?php the_content(); ?></p>
-          		<button type="button" id="gbut" class="btn btn-success">Buy now $<?php echo get_post_meta(get_the_ID(), 'Prix', true); ?></button>
-          	  </div>
-            </div>
-        	</div>
-        <?php endwhile; else : ?>
-        <?php endif; ?>
-      </div>
     </div>
-  </section>
+  </article>';
+  }
+
+
+  $skills = "";
+  if (have_posts()) : while (have_posts()) : the_post();
+	if (has_term('Skills', 'category')) : $skills .= '<aside class="web col-12 col-md-6 col-lg-3">
+    <h4>' . get_the_title() . '</h4>
+    <p class="text-secondary">' . get_the_content() . '</p>
+  </aside>';
+  endif; endwhile; endif;
+
+  if (strlen($skills) > 0) {
+    echo'<article class="details container p-5">
+      <h2>A look at details</h2>
+      <div class="small_articles row">'. $skills .'</div>
+    </article>
+  </section>';
+  }
+
+
+
+
+  $floatText = "";
+  if (have_posts()) : while (have_posts()) : the_post();
+	if (has_term('txt_flottant', 'category')) : $floatText .= '<h2 class="text-white display-4">' . get_the_title() . '</h2>
+    <p class="text-white">' . wp_strip_all_tags(get_the_content()) . '</p>';
+
+  if (get_post_meta(get_the_ID(), 'url', true) != null){
+    $floatText .= ' <button type="button" class="btn btn-primary custom-btn btn-sm" onclick="window.location.href=\'' . get_post_meta(get_the_ID(), "url", true) . '\'">Find Out More &rarr;</button>';
+  }
+  endif; endwhile; endif;
+
+  if (strlen($floatText) > 0) {
+    echo'<section class="second-box min-vh-100">
+        <article class="container d-flex flex-column align-content-center">
+          <div class="row flex-grow-1 d-flex align-items-end flt">
+            <div class="col-10" id="bottom-position">' . $floatText . '</div>
+          </div>
+        </article>
+      </section>';
+  }
+
+
+  $reasons = "";
+  if (have_posts()) : while (have_posts()) : the_post();
+	if (has_term('Reasons', 'category')) : $reasons .= '<aside class="web_based col-md-4 text-white pt-4 pb-4"><h4>' . get_the_title() . '</h4><p>' . get_the_content() . '</p></aside>';
+  endif; endwhile; endif;
+
+  if (strlen($reasons) > 0) {
+    echo'<section class="information">
+      <article class="reasons container">
+        <h3 class="text-white pt-5 pb-4">Reasons to get onbaord</h3>
+        <div class="row d-flex align-items-end">
+          '. $reasons .'
+        </div>
+      </article>
+    </section>';
+  }
+
+  $products = "";
+  if (have_posts()) : while (have_posts()) : the_post();
+    if (has_term('vente', 'category')) : $products .= '<div class="col-12 col-md-12 col-lg-6 cadres">
+      <div class="col-12 px-0 imgFond"';
+      if (has_post_thumbnail()) $products .=  'style="background:url(' . get_the_post_thumbnail_url() . ') no-repeat;">'; else  $products .= '>';
+      $products .= '<div class="nocolor">
+        <span class="purple-bg">' . get_the_tags(get_the_ID())[0]->name . '</span>
+        <h2 class="solo1">' . get_the_title() . '</h2>
+        <p class="solo2">' . get_the_content() . '</p>';
+
+        if (get_post_meta(get_the_ID(), 'url', true) != null){
+          if (get_post_meta(get_the_ID(), 'Prix', true) != null){
+            $products .= '<button type="button" id="gbut" class="btn btn-success" onclick="window.location.href=\'' . get_post_meta(get_the_ID(), "url", true) . '\'">Buy now $' . get_post_meta(get_the_ID(), "Prix", true) . '</button>';
+          } else {
+            $products .= '<button type="button" id="gbut" class="btn btn-success" onclick="window.location.href=\'' . get_post_meta(get_the_ID(), "url", true) . '\'">GET IT FREE</button>';
+          }
+        }
+        $products .= '</div>
+      </div>
+    </div>';
+  endif; endwhile; endif;
+
+    if (strlen($products) > 0) {
+      echo'<!-- Anto Products col-->
+    <section class="products">
+      <div class="container">
+        <div class="row p-5">
+          '. $products .'
+        </div>
+      </div>
+    </section>';
+    } ?>
 
   <!--FOOTER -->
   <footer class="end">
@@ -193,9 +182,16 @@
       <div class="row d-flex pt-5">
         <div class="left col-sm-12 col-md-12 col-lg-6 pb-5 pl-2">
           <div class="get_in_touch text-white align-items-center pt-5">
-            <h4 class="pb-4">Get in touch</h4>
-            <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat.</p>
+            <?php if (have_posts()) : while (have_posts()) : the_post();
+            	if (has_term('Footer', 'category')) : ?>
+            		<!-- Mon article ici -->
+            		<h4 class="pb-4"><?php the_title(); ?></h4>
+            		<p class="font-weight-light"><?php the_content(); ?></p>
+            	<?php endif; endwhile; else : ?>
+            	<!-- Pas d'articles: -->
+            	<h4 class="pb-4"></h4>
+            	<p class="font-weight-light"></p>
+            <?php endif; ?>
           </div>
           <div class="us row pt-4">
             <aside class="resources text-white col-sm-12 col-md-12 col-lg-4">

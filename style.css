@@ -81,6 +81,10 @@ body {
   background-image: url(img/3.jpg);
 }
 
+#cards-right{
+  padding-bottom:20px;
+}
+
 @media screen and (max-width: 993px) {
   #cards-right{
     margin-left: 0rem;
@@ -92,12 +96,17 @@ body {
   }
 }
 
+.custom-logo{
+  width: 92px;
+  height: 41px;
+}
+
 .custom-btn{
   background-color: rgba(255, 255, 255, 0);
   border: 0;
 }
 .custom-btn:hover{
-  background-color: rgba(255, 255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .details h2{
@@ -108,6 +117,10 @@ body {
   color: #979595;
 }
 
+.text-white, .text-white p{
+  color:white;
+}
+
 /*second-box*/
 .second-box{
   background-image: url(img/voiture.jpg);
@@ -116,14 +129,17 @@ body {
   position:relative
 }
 
+.flt{
+  height: 60rem;
+}
+
 #bottom-position{
   position:absolute;
-  bottom:8rem;
+  top:15rem;
 }
 
 .information{
   background-color: #82ca9c;
-  height: 30em;
 }
 .web_based p, .team p, .support p {
   font-size: 0.8em;
@@ -200,7 +216,6 @@ body {
   padding:15px !important;
 }
 
-
 /*footer*/
 .end{
   background-color: #192431;
@@ -235,13 +250,14 @@ h5{
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
-.clients, .line2, .something_new {
+.cadrebg {
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
 }
 
 .cadres{
   margin-left:0px !important;
+  padding-bottom:20px !important;
 }
 
 @media screen and (max-width: 996px) {
@@ -254,48 +270,6 @@ h5{
   }
   .cadres {
     padding: 0px !important;
+    padding-bottom:20px !important;
   }
-}
-
-/* tablettes et smartphones */
-@media screen and (max-width: 768px){
-
-  /* .clients {
-    background-image: url(img/1.png);
-    background-size: cover;
-    background-position: center;
-  }
-
-  .patchwork {
-    display: flex;
-  }
-  .line1{
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .information{
-    border: 1px red dashed;
-    padding-top: 0;
-  }
-  .reasons{
-    border: 1px blue dashed;
-    width: 100%;
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .text-white{
-    padding: 0 !important;
-  } */
-
-  /* footer */
-  /* .blabla{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-  .left{
-    padding: 0 !important;
-  } */
 }
